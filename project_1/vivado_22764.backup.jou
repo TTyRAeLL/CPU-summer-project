@@ -1,0 +1,1001 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Fri Sep 11 16:33:42 2020
+# Process ID: 22764
+# Current directory: C:/Users/hp/Desktop/project_1
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent22520 C:\Users\hp\Desktop\project_1\project_1.xpr
+# Log file: C:/Users/hp/Desktop/project_1/vivado.log
+# Journal file: C:/Users/hp/Desktop/project_1\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/hp/Desktop/project_1/project_1.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 1}
+add_wave {{/cpu_tb/cpu/rf/RF_data[31]}} 
+run 100 us
+current_wave_config {Untitled 1}
+add_wave {{/cpu_tb/cpu/PC}} 
+run 100 us
+restart
+run 100 us
+current_wave_config {Untitled 1}
+add_wave {{/cpu_tb/cpu/PC_plus_4}} 
+restart
+run 100 us
+current_wave_config {Untitled 1}
+add_wave {{/cpu_tb/cpu/instruction}} 
+restart
+run 100 us
+current_wave_config {Untitled 1}
+add_wave {{/cpu_tb/cpu/Stall}} 
+restart
+run 100 us
+current_wave_config {Untitled 1}
+add_wave {{/cpu_tb/cpu/PCSrc}} 
+restart
+run 100 us
+current_wave_config {Untitled 1}
+add_wave {{/cpu_tb/cpu/PC_next}} 
+restart
+run 100 us
+run 1000 us
+restart
+run 1000 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 2}
+add_wave {{/cpu_tb/cpu/PCSrc}} 
+current_wave_config {Untitled 2}
+add_wave {{/cpu_tb/cpu/PC}} 
+current_wave_config {Untitled 2}
+add_wave {{/cpu_tb/cpu/PC_next}} 
+restart
+run 1000 us
+run 1000 us
+run 1000 us
+current_wave_config {Untitled 2}
+add_wave {{/cpu_tb/cpu/Stall}} 
+restart
+run 1000 us
+run 1000 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+restart
+run 1000 us
+close_sim
+launch_simulation
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 4}
+add_wave {{/cpu_tb/cpu/IF_ID_Instruction}} 
+restart
+run 1000 us
+run 1000 us
+run 10000 us
+current_wave_config {Untitled 4}
+add_wave {{/cpu_tb/cpu/clk}} 
+restart
+run 1000 us
+run 1000 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 5}
+add_wave {{/cpu_tb/cpu/PC}} 
+current_wave_config {Untitled 5}
+add_wave {{/cpu_tb/cpu/PC_next}} 
+restart
+run 1000 us
+run 1000 us
+run 1000 us
+restart
+run 1000 us
+run 1000 us
+run 1000 us
+run 1000 us
+run 1000 us
+current_wave_config {Untitled 5}
+add_wave {{/cpu_tb/cpu/rf/RF_data[31]}} 
+current_wave_config {Untitled 5}
+add_wave {{/cpu_tb/cpu/rf/RF_data[29]}} 
+restart
+run 1000 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 6}
+add_wave {{/cpu_tb/cpu/PC}} 
+current_wave_config {Untitled 6}
+add_wave {{/cpu_tb/cpu/PC_next}} 
+current_wave_config {Untitled 6}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+restart
+run 1000 us
+restart
+run 1000 us
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/control/OpCode}} 
+restart
+run 1000 us
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/control/Funct}} 
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/control/PCSrc}} 
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/control/RegDst}} 
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/control/ExtOp}} 
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/control/LuOp}} 
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/control/Branch}} 
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/control/BranchOp}} 
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/control/ALUOp}} 
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/control/ALUSrc1}} 
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/control/ALUSrc2}} 
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/control/MemRead}} 
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/control/MemWrite}} 
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/control/MemToReg}} 
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/control/RegWrite}} 
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/control/MemtoReg}} 
+restart
+run 1000 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+restart
+current_wave_config {Untitled 8}
+add_wave {{/cpu_tb/cpu/control/MemToReg}} 
+run 1000 us
+current_wave_config {Untitled 8}
+add_wave {{/cpu_tb/cpu/control/ALUSrc2}} 
+restart
+run 1000 us
+current_wave_config {Untitled 8}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+restart
+run 1000 us
+current_wave_config {Untitled 8}
+add_wave {{/cpu_tb/cpu/rf/Read_data1}} 
+current_wave_config {Untitled 8}
+add_wave {{/cpu_tb/cpu/rf/Read_data2}} 
+restart
+run 1000 us
+restart
+run 100 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 9}
+add_wave {{/cpu_tb/cpu/Write_Register}} 
+current_wave_config {Untitled 9}
+add_wave {{/cpu_tb/cpu/MEM_WB_Write_Register}} 
+restart
+run 100 us
+run 100 us
+run 100 us
+close_sim
+launch_simulation
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 10}
+add_wave {{/cpu_tb/cpu/Write_Register}} 
+current_wave_config {Untitled 10}
+add_wave {{/cpu_tb/cpu/MEM_WB_Write_Register}} 
+restart
+run 100 us
+current_wave_config {Untitled 10}
+add_wave {{/cpu_tb/cpu/ID_EX_Write_Register}} 
+current_wave_config {Untitled 10}
+add_wave {{/cpu_tb/cpu/EX_MEM_Write_Register}} 
+restart
+run 100 us
+current_wave_config {Untitled 10}
+add_wave {{/cpu_tb/cpu/rf/Write_register}} 
+restart
+run 100 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+restart
+run 100 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+restart
+run 100 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+restart
+run 100 us
+current_wave_config {Untitled 13}
+add_wave {{/cpu_tb/cpu/Write_Register}} 
+restart
+run 100 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+restart
+run 100 us
+current_wave_config {Untitled 14}
+add_wave {{/cpu_tb/cpu/ALUCtl}} 
+current_wave_config {Untitled 14}
+add_wave {{/cpu_tb/cpu/Sign}} 
+restart
+run 100 us
+current_wave_config {Untitled 14}
+add_wave {{/cpu_tb/cpu/alu_ctl/ALUOp}} 
+restart
+run 10 us
+current_wave_config {Untitled 14}
+add_wave {{/cpu_tb/cpu/EXforwardA}} 
+restart
+run 10 us
+current_wave_config {Untitled 14}
+add_wave {{/cpu_tb/cpu/ALU_in_1}} 
+current_wave_config {Untitled 14}
+add_wave {{/cpu_tb/cpu/ALU_in_2}} 
+restart
+run 10 us
+restart
+run 10 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 15}
+add_wave {{/cpu_tb/cpu/ALU_in_1}} 
+current_wave_config {Untitled 15}
+add_wave {{/cpu_tb/cpu/ALU_in_2}} 
+current_wave_config {Untitled 15}
+add_wave {{/cpu_tb/cpu/ID_EX_Offset}} 
+restart
+run 1 us
+current_wave_config {Untitled 15}
+add_wave {{/cpu_tb/cpu/ALUOut}} 
+restart
+run 1 us
+current_wave_config {Untitled 15}
+add_wave {{/cpu_tb/cpu/ALUCtl}} 
+restart
+run 1 us
+current_wave_config {Untitled 15}
+add_wave {{/cpu_tb/cpu/A_forwarded}} 
+restart
+run 1 us
+current_wave_config {Untitled 15}
+add_wave {{/cpu_tb/cpu/EXforwardA}} 
+restart
+run 1 us
+current_wave_config {Untitled 15}
+add_wave {{/cpu_tb/cpu/MEM_WB_RegWrite}} 
+current_wave_config {Untitled 15}
+add_wave {{/cpu_tb/cpu/EX_MEM_MemWrite}} 
+restart
+run 1 us
+current_wave_config {Untitled 15}
+add_wave {{/cpu_tb/cpu/EX_forwardA/MEM_WB_Rd}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+restart
+current_wave_config {Untitled 16}
+add_wave {{/cpu_tb/cpu/MEM_WB_Write_Register}} 
+current_wave_config {Untitled 16}
+add_wave {{/cpu_tb/cpu/Write_Register}} 
+current_wave_config {Untitled 16}
+add_wave {{/cpu_tb/cpu/ID_EX_RegWrite}} 
+current_wave_config {Untitled 16}
+add_wave {{/cpu_tb/cpu/EX_MEM_RegWrite}} 
+restart
+run 1 us
+current_wave_config {Untitled 16}
+add_wave {{/cpu_tb/cpu/ID_EX_Write_Register}} 
+restart
+run 1 us
+current_wave_config {Untitled 16}
+add_wave {{/cpu_tb/cpu/EX_MEM_Write_Register}} 
+current_wave_config {Untitled 16}
+add_wave {{/cpu_tb/cpu/MEM_WB_Write_Register}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 17}
+add_wave {{/cpu_tb/cpu/Write_Register}} 
+current_wave_config {Untitled 17}
+add_wave {{/cpu_tb/cpu/ID_EX_Write_Register}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 18}
+add_wave {{/cpu_tb/cpu/ID_EX_Write_Register}} 
+current_wave_config {Untitled 18}
+add_wave {{/cpu_tb/cpu/Write_Register}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 19}
+add_wave {{/cpu_tb/cpu/EXforwardA}} 
+current_wave_config {Untitled 19}
+add_wave {{/cpu_tb/cpu/ALU_in_1}} 
+current_wave_config {Untitled 19}
+add_wave {{/cpu_tb/cpu/ALU_in_2}} 
+current_wave_config {Untitled 19}
+add_wave {{/cpu_tb/cpu/ALUOut}} 
+restart
+run 1 us
+current_wave_config {Untitled 19}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+restart
+run 1 us
+current_wave_config {Untitled 19}
+add_wave {{/cpu_tb/cpu/Rd}} 
+current_wave_config {Untitled 19}
+add_wave {{/cpu_tb/cpu/ID_Rd}} 
+current_wave_config {Untitled 19}
+add_wave {{/cpu_tb/cpu/ID_EX_Rd}} 
+current_wave_config {Untitled 19}
+add_wave {{/cpu_tb/cpu/EX_MEM_Rd}} 
+current_wave_config {Untitled 19}
+add_wave {{/cpu_tb/cpu/MEM_WB_Rd}} 
+restart
+run 1 us
+current_wave_config {Untitled 19}
+add_wave {{/cpu_tb/cpu/rf/RF_data[7]}} 
+current_wave_config {Untitled 19}
+add_wave {{/cpu_tb/cpu/rf/RF_data[9]}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 20}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+restart
+run 1 us
+current_wave_config {Untitled 20}
+add_wave {{/cpu_tb/cpu/MEM_Data_out}} 
+restart
+run 1 us
+current_wave_config {Untitled 20}
+add_wave {{/cpu_tb/cpu/MEM_WB_Rd}} 
+restart
+run 1 us
+restart
+run 0.5 us
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+restart
+run 1 us
+current_wave_config {Untitled 21}
+add_wave {{/cpu_tb/cpu/MEM_Data_out}} 
+current_wave_config {Untitled 21}
+add_wave {{/cpu_tb/cpu/MEM_WB_Rd}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 22}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 23}
+add_wave {{/cpu_tb/cpu/PC}} 
+restart
+run 1 us
+run 1 us
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 24}
+add_wave {{/cpu_tb/cpu/PC}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 25}
+add_wave {{/cpu_tb/cpu/PC}} 
+restart
+run 1 us
+current_wave_config {Untitled 25}
+add_wave {{/cpu_tb/cpu/BranchHazard}} 
+current_wave_config {Untitled 25}
+add_wave {{/cpu_tb/cpu/Branch_tar}} 
+current_wave_config {Untitled 25}
+add_wave {{/cpu_tb/cpu/Branch}} 
+current_wave_config {Untitled 25}
+add_wave {{/cpu_tb/cpu/BranchOp}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 26}
+add_wave {{/cpu_tb/cpu/BranchHazard}} 
+current_wave_config {Untitled 26}
+add_wave {{/cpu_tb/cpu/Branch_tar}} 
+current_wave_config {Untitled 26}
+add_wave {{/cpu_tb/cpu/Branch}} 
+current_wave_config {Untitled 26}
+add_wave {{/cpu_tb/cpu/BranchOp}} 
+restart
+run 1 us
+current_wave_config {Untitled 26}
+add_wave {{/cpu_tb/cpu/EX_Rs_Data}} 
+current_wave_config {Untitled 26}
+add_wave {{/cpu_tb/cpu/EX_Rt_Data}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 27}
+add_wave {{/cpu_tb/cpu/A_forwarded}} 
+current_wave_config {Untitled 27}
+add_wave {{/cpu_tb/cpu/B_forwarded}} 
+current_wave_config {Untitled 27}
+add_wave {{/cpu_tb/cpu/BranchHazard}} 
+current_wave_config {Untitled 27}
+add_wave {{/cpu_tb/cpu/Branch_tar}} 
+current_wave_config {Untitled 27}
+add_wave {{/cpu_tb/cpu/Branch}} 
+current_wave_config {Untitled 27}
+add_wave {{/cpu_tb/cpu/BranchOp}} 
+restart
+run 1 us
+current_wave_config {Untitled 27}
+add_wave {{/cpu_tb/cpu/EXforwardA}} 
+restart
+run 1 us
+current_wave_config {Untitled 27}
+add_wave {{/cpu_tb/cpu/ID_EX_Rs_Data}} 
+restart
+run 1 us
+current_wave_config {Untitled 27}
+add_wave {{/cpu_tb/cpu/ID_Rs_data}} 
+restart
+run 1 us
+current_wave_config {Untitled 27}
+add_wave {{/cpu_tb/cpu/idforwardA}} 
+restart
+run 1 us
+current_wave_config {Untitled 27}
+add_wave {{/cpu_tb/cpu/ID_EX_Rd}} 
+current_wave_config {Untitled 27}
+add_wave {{/cpu_tb/cpu/EX_MEM_Rd}} 
+restart
+run 1 us
+current_wave_config {Untitled 27}
+add_wave {{/cpu_tb/cpu/EX_MEM_RegWrite}} 
+current_wave_config {Untitled 27}
+add_wave {{/cpu_tb/cpu/ID_EX_RegWrite}} 
+restart
+run 1 us
+current_wave_config {Untitled 27}
+add_wave {{/cpu_tb/cpu/IF_ID_Rs}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 28}
+add_wave {{/cpu_tb/cpu/idforwardA}} 
+restart
+run 1 us
+current_wave_config {Untitled 28}
+add_wave {{/cpu_tb/cpu/BranchHazard}} 
+current_wave_config {Untitled 28}
+add_wave {{/cpu_tb/cpu/Branch}} 
+current_wave_config {Untitled 28}
+add_wave {{/cpu_tb/cpu/BranchOp}} 
+restart
+run 1 us
+current_wave_config {Untitled 28}
+add_wave {{/cpu_tb/cpu/PC_next}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 29}
+add_wave {{/cpu_tb/cpu/PC_next}} 
+current_wave_config {Untitled 29}
+add_wave {{/cpu_tb/cpu/Branch_tar}} 
+current_wave_config {Untitled 29}
+add_wave {{/cpu_tb/cpu/BranchHazard}} 
+current_wave_config {Untitled 29}
+add_wave {{/cpu_tb/cpu/Branch}} 
+current_wave_config {Untitled 29}
+add_wave {{/cpu_tb/cpu/BranchOp}} 
+restart
+run 1 us
+current_wave_config {Untitled 29}
+add_wave {{/cpu_tb/cpu/IF_ID_PC_next}} 
+current_wave_config {Untitled 29}
+add_wave {{/cpu_tb/cpu/ID_EX_PC_next}} 
+restart
+run 1 us
+current_wave_config {Untitled 29}
+add_wave {{/cpu_tb/cpu/imm}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 30}
+add_wave {{/cpu_tb/cpu/PC}} 
+current_wave_config {Untitled 30}
+add_wave {{/cpu_tb/cpu/BranchHazard}} 
+current_wave_config {Untitled 30}
+add_wave {{/cpu_tb/cpu/Branch_tar}} 
+current_wave_config {Untitled 30}
+add_wave {{/cpu_tb/cpu/Branch}} 
+current_wave_config {Untitled 30}
+add_wave {{/cpu_tb/cpu/BranchOp}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 31}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+current_wave_config {Untitled 31}
+add_wave {{/cpu_tb/cpu/rf/RF_data[9]}} 
+restart
+run 1 us
+current_wave_config {Untitled 31}
+add_wave {{/cpu_tb/cpu/ALU_in_1}} 
+current_wave_config {Untitled 31}
+add_wave {{/cpu_tb/cpu/ALU_in_2}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 32}
+add_wave {{/cpu_tb/cpu/rf/RF_data[9]}} 
+current_wave_config {Untitled 32}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 33}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+current_wave_config {Untitled 33}
+add_wave {{/cpu_tb/cpu/rf/RF_data[9]}} 
+restart
+run 1 us
+current_wave_config {Untitled 33}
+add_wave {{/cpu_tb/cpu/ALU_in_1}} 
+current_wave_config {Untitled 33}
+add_wave {{/cpu_tb/cpu/ALU_in_2}} 
+current_wave_config {Untitled 33}
+add_wave {{/cpu_tb/cpu/ALUOut}} 
+restart
+run 1 us
+current_wave_config {Untitled 33}
+add_wave {{/cpu_tb/cpu/ALUOut}} 
+current_wave_config {Untitled 33}
+add_wave {{/cpu_tb/cpu/A_forwarded}} 
+current_wave_config {Untitled 33}
+add_wave {{/cpu_tb/cpu/B_forwarded}} 
+restart
+run 1 us
+current_wave_config {Untitled 33}
+add_wave {{/cpu_tb/cpu/EXforwardA}} 
+current_wave_config {Untitled 33}
+add_wave {{/cpu_tb/cpu/EXforwardB}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 34}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+current_wave_config {Untitled 34}
+add_wave {{/cpu_tb/cpu/rf/RF_data[9]}} 
+current_wave_config {Untitled 34}
+add_wave {{/cpu_tb/cpu/A_forwarded}} 
+current_wave_config {Untitled 34}
+add_wave {{/cpu_tb/cpu/B_forwarded}} 
+current_wave_config {Untitled 34}
+add_wave {{/cpu_tb/cpu/EXforwardA}} 
+current_wave_config {Untitled 34}
+add_wave {{/cpu_tb/cpu/EXforwardB}} 
+restart
+run 1 us
+current_wave_config {Untitled 34}
+add_wave {{/cpu_tb/cpu/ALU_in_1}} 
+current_wave_config {Untitled 34}
+add_wave {{/cpu_tb/cpu/ALU_in_2}} 
+current_wave_config {Untitled 34}
+add_wave {{/cpu_tb/cpu/ALUOut}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 35}
+add_wave {{/cpu_tb/cpu/A_forwarded}} 
+current_wave_config {Untitled 35}
+add_wave {{/cpu_tb/cpu/B_forwarded}} 
+current_wave_config {Untitled 35}
+add_wave {{/cpu_tb/cpu/EXforwardA}} 
+current_wave_config {Untitled 35}
+add_wave {{/cpu_tb/cpu/EXforwardB}} 
+current_wave_config {Untitled 35}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+current_wave_config {Untitled 35}
+add_wave {{/cpu_tb/cpu/rf/RF_data[9]}} 
+restart
+run 1 us
+current_wave_config {Untitled 35}
+add_wave {{/cpu_tb/cpu/ALU_in_1}} 
+current_wave_config {Untitled 35}
+add_wave {{/cpu_tb/cpu/ALU_in_2}} 
+current_wave_config {Untitled 35}
+add_wave {{/cpu_tb/cpu/ALUOut}} 
+restart
+run 1 us
+current_wave_config {Untitled 35}
+add_wave {{/cpu_tb/cpu/MEM_WB_Rd}} 
+current_wave_config {Untitled 35}
+add_wave {{/cpu_tb/cpu/EX_MEM_Rd}} 
+current_wave_config {Untitled 35}
+add_wave {{/cpu_tb/cpu/ID_EX_Rs}} 
+current_wave_config {Untitled 35}
+add_wave {{/cpu_tb/cpu/ID_EX_Rt}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 36}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+current_wave_config {Untitled 36}
+add_wave {{/cpu_tb/cpu/rf/RF_data[9]}} 
+close_sim
+launch_simulation
+source cpu_tb.tcl
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 38}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+current_wave_config {Untitled 38}
+add_wave {{/cpu_tb/cpu/PC}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 39}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+current_wave_config {Untitled 39}
+add_wave {{/cpu_tb/cpu/rf/RF_data[9]}} 
+current_wave_config {Untitled 39}
+add_wave {{/cpu_tb/cpu/jump_addr}} 
+restart
+run 1 us
+current_wave_config {Untitled 39}
+add_wave {{/cpu_tb/cpu/PC}} 
+restart
+run 1 us
+current_wave_config {Untitled 39}
+add_wave {{/cpu_tb/cpu/IF_ID_PC}} 
+restart
+run 1 us
+current_wave_config {Untitled 39}
+add_wave {{/cpu_tb/cpu/PC_next}} 
+restart
+run 1 us
+current_wave_config {Untitled 39}
+add_wave {{/cpu_tb/cpu/instruction_memory/Instruction}} 
+restart
+run 1 us
+current_wave_config {Untitled 39}
+add_wave {{/cpu_tb/cpu/IF_ID_Instruction}} 
+restart
+run 1 us
+current_wave_config {Untitled 39}
+add_wave {{/cpu_tb/cpu/PCSrc}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 40}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+current_wave_config {Untitled 40}
+add_wave {{/cpu_tb/cpu/rf/RF_data[9]}} 
+current_wave_config {Untitled 40}
+add_wave {{/cpu_tb/cpu/rf/RF_data[10]}} 
+restart
+run 1 us
+current_wave_config {Untitled 40}
+add_wave {{/cpu_tb/cpu/PC}} 
+restart
+run 1 us
+current_wave_config {Untitled 40}
+add_wave {{/cpu_tb/cpu/jump_addr}} 
+restart
+run 1 us
+current_wave_config {Untitled 40}
+add_wave {{/cpu_tb/cpu/IF_ID_PC}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 41}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+current_wave_config {Untitled 41}
+add_wave {{/cpu_tb/cpu/rf/RF_data[9]}} 
+current_wave_config {Untitled 41}
+add_wave {{/cpu_tb/cpu/PC}} 
+current_wave_config {Untitled 41}
+add_wave {{/cpu_tb/cpu/jump_addr}} 
+current_wave_config {Untitled 41}
+add_wave {{/cpu_tb/cpu/IF_ID_PC}} 
+restart
+run 1 us
+current_wave_config {Untitled 41}
+add_wave {{/cpu_tb/cpu/PC_next}} 
+restart
+run 1 us
+current_wave_config {Untitled 41}
+add_wave {{/cpu_tb/cpu/instruction}} 
+current_wave_config {Untitled 41}
+add_wave {{/cpu_tb/cpu/IF_ID_Instruction}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 42}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+current_wave_config {Untitled 42}
+add_wave {{/cpu_tb/cpu/rf/RF_data[9]}} 
+current_wave_config {Untitled 42}
+add_wave {{/cpu_tb/cpu/jump_addr}} 
+current_wave_config {Untitled 42}
+add_wave {{/cpu_tb/cpu/PC}} 
+restart
+run 1 us
+current_wave_config {Untitled 42}
+add_wave {{/cpu_tb/cpu/instruction}} 
+current_wave_config {Untitled 42}
+add_wave {{/cpu_tb/cpu/IF_ID_Instruction}} 
+restart
+run 1 us
+current_wave_config {Untitled 42}
+add_wave {{/cpu_tb/cpu/PCSrc}} 
+restart
+run 1 us
+current_wave_config {Untitled 42}
+add_wave {{/cpu_tb/cpu/PC_next}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 43}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+current_wave_config {Untitled 43}
+add_wave {{/cpu_tb/cpu/rf/RF_data[9]}} 
+current_wave_config {Untitled 43}
+add_wave {{/cpu_tb/cpu/PC}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 44}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+current_wave_config {Untitled 44}
+add_wave {{/cpu_tb/cpu/PC}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 45}
+add_wave {{/cpu_tb/cpu/PC}} 
+current_wave_config {Untitled 45}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 46}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+current_wave_config {Untitled 46}
+add_wave {{/cpu_tb/cpu/PC}} 
+restart
+run 1 us
+current_wave_config {Untitled 46}
+add_wave {{/cpu_tb/cpu/IF_ID_PC_plus_4}} 
+current_wave_config {Untitled 46}
+add_wave {{/cpu_tb/cpu/IF_ID_Instruction}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 48}
+add_wave {{/cpu_tb/cpu/PC}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 50}
+add_wave {{/cpu_tb/cpu/rf/RF_data[10]}} 
+current_wave_config {Untitled 50}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+current_wave_config {Untitled 50}
+add_wave {{/cpu_tb/cpu/rf/RF_data[9]}} 
+run 1 us
+current_wave_config {Untitled 50}
+add_wave {{/cpu_tb/cpu/ID_Rs_data}} 
+current_wave_config {Untitled 50}
+add_wave {{/cpu_tb/cpu/ID_Rt_data}} 
+restart
+run 1 us
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 51}
+add_wave {{/cpu_tb/cpu/ID_Rs_data}} 
+current_wave_config {Untitled 51}
+add_wave {{/cpu_tb/cpu/ID_Rt_data}} 
+restart
+run 1 us
+run 1 us
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 52}
+add_wave {{/cpu_tb/cpu/ID_Rs_data}} 
+current_wave_config {Untitled 52}
+add_wave {{/cpu_tb/cpu/ID_Rt_data}} 
+restart
+run 1 us
+run 1 us
+current_wave_config {Untitled 52}
+add_wave {{/cpu_tb/cpu/Rt}} 
+current_wave_config {Untitled 52}
+add_wave {{/cpu_tb/cpu/Rs}} 
+restart
+run 1 us
+current_wave_config {Untitled 52}
+add_wave {{/cpu_tb/cpu/rf/Read_data1}} 
+current_wave_config {Untitled 52}
+add_wave {{/cpu_tb/cpu/rf/Read_data2}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 54}
+add_wave {{/cpu_tb/cpu/rf/RF_data[13]}} 
+current_wave_config {Untitled 54}
+add_wave {{/cpu_tb/cpu/rf/RF_data[14]}} 
+current_wave_config {Untitled 54}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+restart
+run 1 us
+run 1 us
+current_wave_config {Untitled 54}
+add_wave {{/cpu_tb/cpu/PC}} 
+restart
+run 1 us
+current_wave_config {Untitled 54}
+add_wave {{/cpu_tb/cpu/ALUOut}} 
+current_wave_config {Untitled 54}
+add_wave {{/cpu_tb/cpu/ALU_in_1}} 
+current_wave_config {Untitled 54}
+add_wave {{/cpu_tb/cpu/ALU_in_2}} 
+restart
+run 1 us
+current_wave_config {Untitled 54}
+add_wave {{/cpu_tb/cpu/MEM_WB_Rd}} 
+current_wave_config {Untitled 54}
+add_wave {{/cpu_tb/cpu/MEM_Data_out}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 55}
+add_wave {{/cpu_tb/cpu/rf/RF_data[14]}} 
+current_wave_config {Untitled 55}
+add_wave {{/cpu_tb/cpu/rf/RF_data[13]}} 
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 56}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+current_wave_config {Untitled 56}
+add_wave {{/cpu_tb/cpu/rf/RF_data[13]}} 
+current_wave_config {Untitled 56}
+add_wave {{/cpu_tb/cpu/rf/RF_data[14]}} 
+restart
+run 1 us
+current_wave_config {Untitled 56}
+add_wave {{/cpu_tb/cpu/EX_MEM_ALUOut}} 
+restart
+run 1 us
+current_wave_config {Untitled 56}
+add_wave {{/cpu_tb/cpu/EX_MEM_Data_In}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 57}
+add_wave {{/cpu_tb/cpu/RegDst}} 
+restart
+run 1 us
+current_wave_config {Untitled 57}
+add_wave {{/cpu_tb/cpu/Rs}} 
+current_wave_config {Untitled 57}
+add_wave {{/cpu_tb/cpu/Rt}} 
+current_wave_config {Untitled 57}
+add_wave {{/cpu_tb/cpu/ID_Rs_data}} 
+current_wave_config {Untitled 57}
+add_wave {{/cpu_tb/cpu/ID_Rt_data}} 
+restart

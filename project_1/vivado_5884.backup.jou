@@ -1,0 +1,159 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Sat Sep 12 21:12:48 2020
+# Process ID: 5884
+# Current directory: C:/Users/hp/Desktop/project_1
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent8876 C:\Users\hp\Desktop\project_1\project_1.xpr
+# Log file: C:/Users/hp/Desktop/project_1/vivado.log
+# Journal file: C:/Users/hp/Desktop/project_1\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/hp/Desktop/project_1/project_1.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 1}
+add_wave {{/cpu_tb/cpu/Rs}} 
+current_wave_config {Untitled 1}
+add_wave {{/cpu_tb/cpu/Rt}} 
+current_wave_config {Untitled 1}
+add_wave {{/cpu_tb/cpu/ID_Rs_data}} 
+current_wave_config {Untitled 1}
+add_wave {{/cpu_tb/cpu/ID_Rt_data}} 
+restart
+run 1 us
+current_wave_config {Untitled 1}
+add_wave {{/cpu_tb/cpu/ID_Ext_Out}} 
+restart
+run 1 us
+current_wave_config {Untitled 1}
+add_wave {{/cpu_tb/cpu/ALU_in_1}} 
+current_wave_config {Untitled 1}
+add_wave {{/cpu_tb/cpu/ALU_in_2}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {}
+add_wave {{/cpu_tb/cpu/ALUOut}} 
+restart
+run 1 us
+current_wave_config {Untitled 2}
+add_wave {{/cpu_tb/cpu/EX_MEM_Data_In}} 
+current_wave_config {Untitled 2}
+add_wave {{/cpu_tb/cpu/EX_Rt_Data}} 
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 3}
+add_wave {{/cpu_tb/cpu/data_memory/RAM_data[0]}} 
+current_wave_config {Untitled 3}
+add_wave {{/cpu_tb/cpu/EX_MEM_Data_In}} 
+restart
+run 1 us
+current_wave_config {Untitled 3}
+add_wave {{/cpu_tb/cpu/ID_EX_Rt_Data}} 
+current_wave_config {Untitled 3}
+add_wave {{/cpu_tb/cpu/ID_Rt_data}} 
+restart
+run 1 us
+current_wave_config {Untitled 3}
+add_wave {{/cpu_tb/cpu/Rt}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 5}
+add_wave {{/cpu_tb/cpu/PC}} 
+current_wave_config {Untitled 5}
+add_wave {{/cpu_tb/cpu/rf/RF_data[8]}} 
+current_wave_config {Untitled 5}
+add_wave {{/cpu_tb/cpu/rf/RF_data[10]}} 
+current_wave_config {Untitled 5}
+add_wave {{/cpu_tb/cpu/rf/RF_data[11]}} 
+current_wave_config {Untitled 5}
+add_wave {{/cpu_tb/cpu/rf/RF_data[13]}} 
+current_wave_config {Untitled 5}
+add_wave {{/cpu_tb/cpu/rf/RF_data[14]}} 
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 6}
+add_wave {{/cpu_tb/cpu/PC}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/jump_addr}} 
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/JumpHazard}} 
+restart
+run 1 us
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/PCSrc}} 
+restart
+run 1 us
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/control/PCSrc}} 
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/IF_ID_Instruction}} 
+restart
+run 1 us
+current_wave_config {Untitled 7}
+add_wave {{/cpu_tb/cpu/instruction}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+close_sim
+launch_simulation
+source cpu_tb.tcl
+close_sim
+launch_simulation
+source cpu_tb.tcl
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+close_sim
+launch_simulation
+source cpu_tb.tcl
+close_sim
+launch_simulation
+source cpu_tb.tcl
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 15}
+add_wave {{/cpu_tb/cpu/ALUOut}} 
+current_wave_config {Untitled 15}
+add_wave {{/cpu_tb/cpu/ALU_in_1}} 
+current_wave_config {Untitled 15}
+add_wave {{/cpu_tb/cpu/ALU_in_2}} 
+restart
+run 1 us
+current_wave_config {Untitled 15}
+add_wave {{/cpu_tb/cpu/EXforwardA}} 
+current_wave_config {Untitled 15}
+add_wave {{/cpu_tb/cpu/MEMforward}} 
+restart
+run 1 us
+close_sim
+launch_simulation
+source cpu_tb.tcl
+current_wave_config {Untitled 16}
+add_wave {{/cpu_tb/cpu/ALUOut}} 
