@@ -1,13 +1,49 @@
 `timescale 1ns / 1ps
 
-module CPU(
-    clk,
-    reset
-
-    );
+module CPU(clk, reset, cathodes, ans, LEDs);
     input clk;
     input reset;
-
+    output reg [7:0] cathodes;
+    output reg [3:0] ans;
+    output reg [7:0] LEDs;
+    
+    reg [31:0] SysTick;
+    reg [31:0] TH, TH_next, TL, TL_next;
+    reg [2:0] TCON, TCON_next;
+    
+    always @(posedge reset or posedge clk)
+    if(reset)
+    begin
+        SysTick <= 32'h00000000;
+        TL_next <= 32'h00000000;
+        TCON_next <= 3'b000;
+    end
+    else
+    begin
+        SysTick <= SysTick + 1'b1;
+        if(TCON[0])
+        begin
+            if(TL == 32'hffffffff)
+            begin
+                TL_next <= TH;
+                if(TCON[1])
+                    TCON_next <= {1'b1, TCON[1:0]};
+                else
+                    TCON_next <= TCON;  
+            end
+            else
+            begin
+                TL_next <= TL + 1'b1;
+                TCON_next <= TCON;
+            end
+        end
+        else
+        begin
+            TL_next <= TL;
+            TCON_next <= TCON;
+        end
+    end    
+    
     reg [31:0] PC;
     wire [31:0] PC_next;
     wire [31:0] PC_plus_4;
@@ -328,12 +364,57 @@ module CPU(
         end
     //MEM
     wire [31:0] MEM_Data_Read;//data read from memory
-    
+    wire [31:0] DM_Data;
+    reg [31:0] Out_Data;
     DataMemory data_memory(.reset(reset), .clk(clk), .Address(EX_MEM_ALUOut), 
-                           .Write_data(EX_MEM_Data_In), .Read_data(MEM_Data_Read),
+                           .Write_data(EX_MEM_Data_In), .Read_data(DM_Data),
                            .MemRead(EX_MEM_MemRead), .MemWrite(EX_MEM_MemWrite)
                            );
-                           
+    
+    assign MEM_Data_Read = (EX_MEM_ALUOut[30])? Out_Data : DM_Data;
+    
+    always @(*)
+    if(EX_MEM_MemRead)
+    begin
+        case(EX_MEM_ALUOut)
+        32'h40000000:Out_Data <= TH;
+        32'h40000004:Out_Data <= TL;
+        32'h40000008:Out_Data <= {29'b0, TCON};
+        32'h4000000C:Out_Data <= {24'b0, LEDs};
+        32'h40000010:Out_Data <= {20'b0, ans, cathodes};
+        32'h40000014:Out_Data <= SysTick;
+        default: Out_Data <= 32'h00000000;
+        endcase
+    end
+    else
+        Out_Data <= 32'h00000000;
+    
+    always @(posedge reset or posedge clk)//???
+    if(reset)
+    begin
+        TH <= 32'h00000000;
+        TL <= 32'h00000000;
+        TCON <= 3'b000;
+        cathodes <= 8'b00000000;
+        ans <= 4'b0000;
+        LEDs <= 8'b00000000;
+    end
+    else
+    begin
+        if(EX_MEM_MemWrite && EX_MEM_ALUOut == 32'h40000000) TH <= EX_MEM_Data_In;
+        if(EX_MEM_MemWrite && EX_MEM_ALUOut == 32'h40000004) TL <= EX_MEM_Data_In;
+        else TL <= TL_next;
+        if(EX_MEM_MemWrite && EX_MEM_ALUOut == 32'h40000008) TCON <= EX_MEM_Data_In[2:0];
+        else TCON <= TCON_next;
+        if(EX_MEM_MemWrite && EX_MEM_ALUOut == 32'h4000000C) LEDs <= EX_MEM_Data_In[7:0];
+        if(EX_MEM_MemWrite && EX_MEM_ALUOut == 32'h40000010)
+        begin
+         cathodes <= EX_MEM_Data_In[7:0];
+         ans <= EX_MEM_Data_In[11:8];
+        end
+    end
+    
+    
     wire [31:0] MEM_Out;
     reg [31:0] WB_Out;
     
