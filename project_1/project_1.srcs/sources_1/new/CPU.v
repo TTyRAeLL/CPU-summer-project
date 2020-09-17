@@ -3,24 +3,45 @@
 module CPU(clk, reset, cathodes, ans, LEDs);
     input clk;
     input reset;
-    output reg [7:0] cathodes;
-    output reg [3:0] ans;
+    output [7:0] cathodes;
+    output [3:0] ans;
     output reg [7:0] LEDs;
     
     reg [31:0] SysTick;
     reg [31:0] TH, TH_next, TL, TL_next;
     reg [2:0] TCON, TCON_next;
+    reg [15:0] clk_num;
+    reg bcd_en, write_en;
     
+    reg [31:0] PC;
     always @(posedge reset or posedge clk)
     if(reset)
     begin
         SysTick <= 32'h00000000;
+        TL <= 32'h00000000;
+        TCON <= 3'b000;
+        TH <= 32'h00000000;
         TL_next <= 32'h00000000;
         TCON_next <= 3'b000;
     end
     else
     begin
         SysTick <= SysTick + 1'b1;
+        if(TCON[0])
+        begin
+            if(TL==32'hffffffff)
+            begin
+                TL <= TH;
+                if(TCON[1]) 
+                begin
+                TCON[2] <= 1'b1;
+                //PC[31] <= 1'b0;
+                end
+            end
+            else
+                TL <= TL + 1;
+        end
+        /*
         if(TCON[0])
         begin
             if(TL == 32'hffffffff)
@@ -41,10 +62,13 @@ module CPU(clk, reset, cathodes, ans, LEDs);
         begin
             TL_next <= TL;
             TCON_next <= TCON;
-        end
+        end*/
     end    
+    reg [11:0] digits;
+    //assign cathodes = digits[7:0];
+    //assign an = digits[11:8];
     
-    reg [31:0] PC;
+    
     wire [31:0] PC_next;
     wire [31:0] PC_plus_4;
     wire [31:0] jump_addr;
@@ -63,10 +87,11 @@ module CPU(clk, reset, cathodes, ans, LEDs);
     //IF stage
     assign PC_plus_4 = PC + 32'd4;//ÓÐÎÊÌâ£¿
     assign PC_next = BranchHazard ? Branch_tar:
-                     (ID_PCSrc == 3'b100)? 32'h80000008://exception
-                     (ID_PCSrc == 3'b011)? 32'h80000004://IRQ
                      (ID_PCSrc == 3'b001)? jump_addr://jump to a certain address
                      (ID_PCSrc == 3'b010)? jr_addr: //take register data as address
+                     (ID_PCSrc == 3'b100)? 32'h80000008://exception
+                     (ID_PCSrc == 3'b011)? 32'h80000004://IRQ
+                     
                      //(PCSrc == 3'b101)? branch_addr:
                       PC_plus_4;
     
@@ -143,11 +168,14 @@ module CPU(clk, reset, cathodes, ans, LEDs);
     assign imm = IF_ID_Instruction[15:0];
     assign shamt = IF_ID_Instruction[10:6];
     
+    
+    assign IRQ = TCON[2] && (~PC[31]);/* && (~BranchHazard)*/
+    
     Control control(.OpCode(OpCode), .Funct(funct), .PCSrc(PCSrc), .RegDst(RegDst), .ExtOp(ExtOp),
                     .LuOp(LuOp), .Branch(Branch), .BranchOp(BranchOp),
                     .ALUOp(ALUOp), .ALUSrc1(ALUSrc1), .ALUSrc2(ALUSrc2),
                     .MemRead(MemRead), .MemWrite(MemWrite), .MemToReg(MemToReg),
-                    .RegWrite(RegWrite), .IRQ(IRQ), .Exception(Exception)
+                    .RegWrite(RegWrite), .IRQ(TCON[2] && (~PC[31])), .Exception(Exception)
                     );
     //determine regdst             
 
@@ -188,7 +216,7 @@ module CPU(clk, reset, cathodes, ans, LEDs);
                     .forward(idforwardB));
     
     assign jump_addr = {IF_ID_PC[31:28], IF_ID_Instruction[25:0], 2'b00};
-    assign jr_addr = ID_Rs_Out;
+    assign jr_addr = {1'b0, ID_Rs_Out[30:0]};
     
     assign ID_PCSrc = BranchHazard ? 3'b011:PCSrc;
     
@@ -349,6 +377,7 @@ module CPU(clk, reset, cathodes, ans, LEDs);
             EX_MEM_Data_In <= 32'h00000000;
             EX_MEM_PC_reg <= 32'h00000000;
             EX_MEM_Rd <= 5'b00000;
+            write_en <= 1'b0;
         end
         else
         begin
@@ -361,6 +390,10 @@ module CPU(clk, reset, cathodes, ans, LEDs);
             //EX_MEM_PC_reg <= PC_next;//???
             EX_MEM_Rd <= EX_Rd;
             EX_MEM_PC_reg <=  (ID_EX_RegDst == 2'b11)?ID_EX_PC : ID_EX_PC_plus_4;
+            if(EX_MEM_ALUOut[30] == 1'b1)//disable DM when using Peripherals
+                write_en <= 1'b0;
+            else 
+                write_en <= 1'b1;
         end
     //MEM
     wire [31:0] MEM_Data_Read;//data read from memory
@@ -368,7 +401,7 @@ module CPU(clk, reset, cathodes, ans, LEDs);
     reg [31:0] Out_Data;
     DataMemory data_memory(.reset(reset), .clk(clk), .Address(EX_MEM_ALUOut), 
                            .Write_data(EX_MEM_Data_In), .Read_data(DM_Data),
-                           .MemRead(EX_MEM_MemRead), .MemWrite(EX_MEM_MemWrite)
+                           .MemRead(EX_MEM_MemRead), .MemWrite(EX_MEM_MemWrite), .write_en(write_en)
                            );
     
     assign MEM_Data_Read = (EX_MEM_ALUOut[30])? Out_Data : DM_Data;
@@ -381,7 +414,7 @@ module CPU(clk, reset, cathodes, ans, LEDs);
         32'h40000004:Out_Data <= TL;
         32'h40000008:Out_Data <= {29'b0, TCON};
         32'h4000000C:Out_Data <= {24'b0, LEDs};
-        32'h40000010:Out_Data <= {20'b0, ans, cathodes};
+        32'h40000010:Out_Data <= {16'b0, clk_num};
         32'h40000014:Out_Data <= SysTick;
         default: Out_Data <= 32'h00000000;
         endcase
@@ -389,31 +422,33 @@ module CPU(clk, reset, cathodes, ans, LEDs);
     else
         Out_Data <= 32'h00000000;
     
-    always @(posedge reset or posedge clk)//???
+    always @(posedge reset or posedge clk)
     if(reset)
     begin
         TH <= 32'h00000000;
         TL <= 32'h00000000;
         TCON <= 3'b000;
-        cathodes <= 8'b00000000;
-        ans <= 4'b0000;
+        digits <= 11'h000;
+        clk_num <= 16'b000000;
         LEDs <= 8'b00000000;
+        bcd_en <= 1'b0;
     end
     else
     begin
         if(EX_MEM_MemWrite && EX_MEM_ALUOut == 32'h40000000) TH <= EX_MEM_Data_In;
         if(EX_MEM_MemWrite && EX_MEM_ALUOut == 32'h40000004) TL <= EX_MEM_Data_In;
-        else TL <= TL_next;
+        //else TL <= TL_next;
         if(EX_MEM_MemWrite && EX_MEM_ALUOut == 32'h40000008) TCON <= EX_MEM_Data_In[2:0];
-        else TCON <= TCON_next;
+        //else TCON <= TCON_next;
         if(EX_MEM_MemWrite && EX_MEM_ALUOut == 32'h4000000C) LEDs <= EX_MEM_Data_In[7:0];
-        if(EX_MEM_MemWrite && EX_MEM_ALUOut == 32'h40000010)
+        if(EX_MEM_MemWrite && EX_MEM_ALUOut == 32'h40000010) 
         begin
-         cathodes <= EX_MEM_Data_In[7:0];
-         ans <= EX_MEM_Data_In[11:8];
+            bcd_en <= 1'b1;
+            clk_num <= EX_MEM_Data_In[15:0];
         end
     end
     
+    BCD7 bcd7(.scan_clk(clk), .din0(clk_num[15:12]), .din1(clk_num[11:8]), .din2(clk_num[7:4]), .din3(clk_num[3:0]), .dout(cathodes), .AN(ans), .bcd_en(bcd_en));
     
     wire [31:0] MEM_Out;
     reg [31:0] WB_Out;

@@ -23,14 +23,15 @@ module Control(
     
     output [1:0] MemToReg;
     output RegWrite;
-    output reg Exception;
+    output Exception;
     
     assign PCSrc = //IRQ, exception
-        IRQ ? 3'b011:
-        Exception ? 3'b100:
+
        (OpCode == 6'h02 || OpCode == 6'h03)? 3'b001:
        ((OpCode == 0 && Funct == 6'h08) || (OpCode == 0 && Funct == 6'h09))? 3'b010:
-       3'b000;
+        IRQ ? 3'b011:
+        Exception ? 3'b100:
+        3'b000;
     assign Branch = 
               ~IRQ && (OpCode == 6'h01 || (OpCode >= 6'h04 && OpCode <= 6'h07))? 1'b1:
               1'b0;
@@ -75,48 +76,10 @@ module Control(
     assign RegWrite = IRQ || Exception || 
            ~(OpCode == 6'h2b || Branch || OpCode == 6'h02 || (OpCode == 0 && Funct == 6'h08));
            
-    always @(*) begin//ÕâÊÇÉ¶
-	   if(OpCode == 6'h00) begin
-	       case(Funct)
-	           6'h20: Exception <= 0;
-	           6'h21: Exception <= 0;
-	           6'h22: Exception <= 0;
-	           6'h23: Exception <= 0;
-	           6'h24: Exception <= 0;
-	           6'h25: Exception <= 0;
-	           6'h26: Exception <= 0;
-	           6'h27: Exception <= 0;
-	           6'h2a: Exception <= 0;
-	           6'h2b: Exception <= 0;
-	           6'h08: Exception <= 0;
-	           6'h09: Exception <= 0;
-	           6'h00: Exception <= 0;
-	           6'h02: Exception <= 0;
-	           6'h03: Exception <= 0;
-	           default: Exception <= 1;
-	       endcase
-	   end else begin
-	       case(OpCode)
-	           6'h23: Exception <= 0;
-	           6'h2b: Exception <= 0;
-	           6'h0f: Exception <= 0;
-	           6'h08: Exception <= 0;
-	           6'h09: Exception <= 0;
-	           6'h0c: Exception <= 0;
-	           6'h0a: Exception <= 0;
-	           6'h0b: Exception <= 0;
-	           6'h0d: Exception <= 0;
-	           6'h01: Exception <= 0;
-	           6'h02: Exception <= 0;
-	           6'h03: Exception <= 0;
-	           6'h04: Exception <= 0;
-	           6'h05: Exception <= 0;
-	           6'h06: Exception <= 0;
-	           6'h07: Exception <= 0;   
-
-	           default:Exception <= 1;
-	       endcase
-	   end
-	end
+    assign Exception = ~((OpCode == 6'h00 && ((Funct >= 6'h20 && Funct <= 6'h27) || Funct == 6'h2a ||
+                        Funct == 6'h2b || Funct == 6'h08||Funct == 6'h09 || Funct == 6'h00 ||
+                        Funct == 6'h02 || Funct == 6'h03)) || ((OpCode >= 6'h01 && OpCode <= 6'h0d) ||
+                        (OpCode == 6'h23 || OpCode == 6'h2b || OpCode == 6'h0f)));
+    
            
 endmodule

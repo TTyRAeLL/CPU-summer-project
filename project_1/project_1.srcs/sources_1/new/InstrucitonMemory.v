@@ -1,29 +1,11 @@
 `timescale 1ns / 1ps
-
+/*
 module InstructionMemory(Address, Instruction);
 	input [31:0] Address;
 	output reg [31:0] Instruction;
 	always @(*)
 	   case (Address[9:2])
-	       /*
-            8'd0: Instruction <= 32'h20080003;
-            8'd1: Instruction <= 32'had280000;
-            8'd2: Instruction <= 32'h8d2a0000;
-            8'd3: Instruction <= 32'h014a5820;
-            */
-            //8'd2: Instruction <= 32'h01084020;
 
-            /*8'd0: Instruction <= 32'h0c100003;
-            8'd1: Instruction <= 32'h20040004;
-            8'd2: Instruction <= 32'h08100008;
-            8'd3: Instruction <= 32'h20050003;
-            8'd4: Instruction <= 32'h03e00008;*/
-            /*8'd4: Instruction <= 32'h20080005;
-            8'd5: Instruction <= 32'h20090006;
-            8'd6: Instruction <= 32'h200a0007;*/
-            /*8'd4: Instruction <= 32'h23bdfff8;
-            8'd5: Instruction <= 32'hafbf0004;
-            8'd6: Instruction <= 32'h23bd0008;*/
 	       
             8'd0: Instruction <= 32'h20040004;
             8'd1: Instruction <= 32'h0c100003;
@@ -46,4 +28,16 @@ module InstructionMemory(Address, Instruction);
             
             default: Instruction <= 32'h00000000;
         endcase
+endmodule
+*/
+module InstructionMemory(Address, Instruction);
+	input [31:0] Address;
+	output [31:0] Instruction;
+	
+	parameter RAM_SIZE = 256;
+	parameter RAM_SIZE_BIT = 8;
+	
+	reg [31:0] RAM_data[RAM_SIZE - 1: 0];
+	assign Instruction = RAM_data[Address[RAM_SIZE_BIT + 1:2]];
+	
 endmodule

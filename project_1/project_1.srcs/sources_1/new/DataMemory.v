@@ -1,8 +1,9 @@
 `timescale 1ns / 1ps
 
-module DataMemory(reset, clk, Address, Write_data, Read_data, MemRead, MemWrite);
+module DataMemory(reset, clk, Address, Write_data, Read_data, MemRead, MemWrite, write_en);
 	input reset, clk;
 	input [31:0] Address, Write_data;
+	input write_en;
 	input MemRead, MemWrite;
 	output [31:0] Read_data;
 	
@@ -17,7 +18,7 @@ module DataMemory(reset, clk, Address, Write_data, Read_data, MemRead, MemWrite)
 		if (reset)
 			for (i = 0; i < RAM_SIZE; i = i + 1)
 				RAM_data[i] <= 32'h00000000;
-		else if (MemWrite)
+		else if (MemWrite && write_en)
 			RAM_data[Address[RAM_SIZE_BIT + 1:2]] <= Write_data;
 			
 endmodule
